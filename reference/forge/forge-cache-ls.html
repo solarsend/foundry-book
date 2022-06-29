@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js ayu">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>forge cache ls - Foundry Book</title>
+        <!-- Custom HTML head -->
+        <meta name="twitter:card" content="summary">
+        <meta property="og:title" content="Foundry Book" />
+        <meta property="og:description" content="A book on all things Foundry" />
+        <meta name="twitter:image:src" content="https://raw.githubusercontent.com/foundry-rs/book/master/theme/card.png" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="A book on all things Foundry">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="../../src/static/custom.css">
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "ayu";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('ayu')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="../../index.html">Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting Started</li><li class="chapter-item expanded "><a href="../../getting-started/installation.html">Installation</a></li><li class="chapter-item expanded "><a href="../../getting-started/first-steps.html">First Steps with Foundry</a></li><li class="chapter-item expanded affix "><li class="part-title">Projects</li><li class="chapter-item expanded "><a href="../../projects/creating-a-new-project.html">Creating a New Project</a></li><li class="chapter-item expanded "><a href="../../projects/working-on-an-existing-project.html">Working on an Existing Project</a></li><li class="chapter-item expanded "><a href="../../projects/dependencies.html">Dependencies</a></li><li class="chapter-item expanded "><a href="../../projects/project-layout.html">Project Layout</a></li><li class="chapter-item expanded affix "><li class="part-title">Forge Overview</li><li class="chapter-item expanded "><a href="../../forge/index.html">Overview of Forge</a></li><li class="chapter-item expanded "><a href="../../forge/tests.html">Tests</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../forge/writing-tests.html">Writing Tests</a></li><li class="chapter-item "><a href="../../forge/cheatcodes.html">Cheatcodes</a></li><li class="chapter-item "><a href="../../forge/forge-std.html">Forge Standard Library Overview</a></li><li class="chapter-item "><a href="../../forge/traces.html">Understanding Traces</a></li><li class="chapter-item "><a href="../../forge/forking-mode.html">Forking Mode</a></li></ol></li><li class="chapter-item expanded "><a href="../../forge/advanced-testing.html">Advanced Testing</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../forge/fuzz-testing.html">Fuzz Testing</a></li><li class="chapter-item "><a href="../../forge/differential-ffi-testing.html">Differential Testing</a></li></ol></li><li class="chapter-item expanded "><a href="../../forge/deploying.html">Deploying and Verifying</a></li><li class="chapter-item expanded "><a href="../../forge/gas-tracking.html">Gas Tracking</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../forge/gas-reports.html">Gas Reports</a></li><li class="chapter-item "><a href="../../forge/gas-snapshots.html">Gas Snapshots</a></li></ol></li><li class="chapter-item expanded "><a href="../../forge/debugger.html">Debugger</a></li><li class="chapter-item expanded affix "><li class="part-title">Cast Overview</li><li class="chapter-item expanded "><a href="../../cast/index.html">Overview of Cast</a></li><li class="chapter-item expanded affix "><li class="part-title">Anvil Overview</li><li class="chapter-item expanded "><a href="../../anvil/index.html">Overview of Anvil</a></li><li class="chapter-item expanded affix "><li class="part-title">Configuration</li><li class="chapter-item expanded "><a href="../../config/index.html">Configuring with foundry.toml</a></li><li class="chapter-item expanded "><a href="../../config/continous-integration.html">Continuous Integration</a></li><li class="chapter-item expanded "><a href="../../config/vscode.html">Integrating with VSCode</a></li><li class="chapter-item expanded "><a href="../../config/shell-autocompletion.html">Shell Autocompletion</a></li><li class="chapter-item expanded "><a href="../../config/static-analyzers.html">Static Analyzers</a></li><li class="chapter-item expanded "><a href="../../config/hardhat.html">Integrating with Hardhat</a></li><li class="chapter-item expanded affix "><li class="part-title">Tutorials</li><li class="chapter-item expanded "><a href="../../tutorials/solmate-nft.html">Creating an NFT with Solmate</a></li><li class="chapter-item expanded "><a href="../../tutorials/foundry-docker.html">Docker and Foundry</a></li><li class="chapter-item expanded "><a href="../../tutorials/testing-eip712.html">Testing EIP-712 Signatures</a></li><li class="chapter-item expanded "><a href="../../tutorials/solidity-scripting.html">Solidity Scripting</a></li><li class="chapter-item expanded affix "><li class="part-title">Appendix</li><li class="chapter-item expanded "><a href="../../faq.html">FAQ</a></li><li class="chapter-item expanded "><a href="../../reference/index.html">References</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../../reference/forge/index.html">forge Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge/general-commands.html">General Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge/forge.html">forge</a></li><li class="chapter-item "><a href="../../reference/forge/forge-help.html">forge help</a></li><li class="chapter-item "><a href="../../reference/forge/forge-completions.html">forge completions</a></li></ol></li><li class="chapter-item "><a href="../../reference/forge/project-commands.html">Project Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge/forge-init.html">forge init</a></li><li class="chapter-item "><a href="../../reference/forge/forge-install.html">forge install</a></li><li class="chapter-item "><a href="../../reference/forge/forge-update.html">forge update</a></li><li class="chapter-item "><a href="../../reference/forge/forge-remove.html">forge remove</a></li><li class="chapter-item "><a href="../../reference/forge/forge-config.html">forge config</a></li><li class="chapter-item "><a href="../../reference/forge/forge-remappings.html">forge remappings</a></li><li class="chapter-item "><a href="../../reference/forge/forge-tree.html">forge tree</a></li></ol></li><li class="chapter-item "><a href="../../reference/forge/build-commands.html">Build Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge/forge-build.html">forge build</a></li><li class="chapter-item "><a href="../../reference/forge/forge-clean.html">forge clean</a></li><li class="chapter-item "><a href="../../reference/forge/forge-inspect.html">forge inspect</a></li></ol></li><li class="chapter-item "><a href="../../reference/forge/test-commands.html">Test Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge/forge-test.html">forge test</a></li><li class="chapter-item "><a href="../../reference/forge/forge-snapshot.html">forge snapshot</a></li></ol></li><li class="chapter-item "><a href="../../reference/forge/deploy-commands.html">Deploy Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge/forge-create.html">forge create</a></li><li class="chapter-item "><a href="../../reference/forge/forge-verify-contract.html">forge verify-contract</a></li><li class="chapter-item "><a href="../../reference/forge/forge-verify-check.html">forge verify-check</a></li><li class="chapter-item "><a href="../../reference/forge/forge-flatten.html">forge flatten</a></li></ol></li><li class="chapter-item expanded "><a href="../../reference/forge/utility-commands.html">Utility Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge/forge-debug.html">forge debug</a></li><li class="chapter-item "><a href="../../reference/forge/forge-bind.html">forge bind</a></li><li class="chapter-item "><a href="../../reference/forge/forge-cache.html">forge cache</a></li><li class="chapter-item "><a href="../../reference/forge/forge-cache-clean.html">forge cache clean</a></li><li class="chapter-item expanded "><a href="../../reference/forge/forge-cache-ls.html" class="active">forge cache ls</a></li><li class="chapter-item "><a href="../../reference/forge/forge-script.html">forge script</a></li><li class="chapter-item "><a href="../../reference/forge/forge-upload-selectors.html">forge upload-selectors</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../reference/cast/index.html">cast Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/general-commands.html">General Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast.html">cast</a></li><li class="chapter-item "><a href="../../reference/cast/cast-help.html">cast help</a></li><li class="chapter-item "><a href="../../reference/cast/cast-completions.html">cast completions</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/chain-commands.html">Chain Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-chain-id.html">cast chain-id</a></li><li class="chapter-item "><a href="../../reference/cast/cast-chain.html">cast chain</a></li><li class="chapter-item "><a href="../../reference/cast/cast-client.html">cast client</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/transaction-commands.html">Transaction Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-publish.html">cast publish</a></li><li class="chapter-item "><a href="../../reference/cast/cast-receipt.html">cast receipt</a></li><li class="chapter-item "><a href="../../reference/cast/cast-send.html">cast send</a></li><li class="chapter-item "><a href="../../reference/cast/cast-call.html">cast call</a></li><li class="chapter-item "><a href="../../reference/cast/cast-tx.html">cast tx</a></li><li class="chapter-item "><a href="../../reference/cast/cast-run.html">cast run</a></li><li class="chapter-item "><a href="../../reference/cast/cast-estimate.html">cast estimate</a></li><li class="chapter-item "><a href="../../reference/cast/cast-access-list.html">cast access-list</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/block-commands.html">Block Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-find-block.html">cast find-block</a></li><li class="chapter-item "><a href="../../reference/cast/cast-gas-price.html">cast gas-price</a></li><li class="chapter-item "><a href="../../reference/cast/cast-block-number.html">cast block-number</a></li><li class="chapter-item "><a href="../../reference/cast/cast-basefee.html">cast basefee</a></li><li class="chapter-item "><a href="../../reference/cast/cast-block.html">cast block</a></li><li class="chapter-item "><a href="../../reference/cast/cast-age.html">cast age</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/account-commands.html">Account Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-balance.html">cast balance</a></li><li class="chapter-item "><a href="../../reference/cast/cast-storage.html">cast storage</a></li><li class="chapter-item "><a href="../../reference/cast/cast-proof.html">cast proof</a></li><li class="chapter-item "><a href="../../reference/cast/cast-nonce.html">cast nonce</a></li><li class="chapter-item "><a href="../../reference/cast/cast-code.html">cast code</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/ens-commands.html">ENS Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-lookup-address.html">cast lookup-address</a></li><li class="chapter-item "><a href="../../reference/cast/cast-resolve-name.html">cast resolve-name</a></li><li class="chapter-item "><a href="../../reference/cast/cast-namehash.html">cast namehash</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/etherscan-commands.html">Etherscan Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-etherscan-source.html">cast etherscan-source</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/abi-commands.html">ABI Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-abi-encode.html">cast abi-encode</a></li><li class="chapter-item "><a href="../../reference/cast/cast-4byte.html">cast 4byte</a></li><li class="chapter-item "><a href="../../reference/cast/cast-4byte-decode.html">cast 4byte-decode</a></li><li class="chapter-item "><a href="../../reference/cast/cast-4byte-event.html">cast 4byte-event</a></li><li class="chapter-item "><a href="../../reference/cast/cast-calldata.html">cast calldata</a></li><li class="chapter-item "><a href="../../reference/cast/cast-pretty-calldata.html">cast pretty-calldata</a></li><li class="chapter-item "><a href="../../reference/cast/cast--abi-decode.html">cast --abi-decode</a></li><li class="chapter-item "><a href="../../reference/cast/cast--calldata-decode.html">cast --calldata-decode</a></li><li class="chapter-item "><a href="../../reference/cast/cast-upload-signature.html">cast upload-signature</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/conversion-commands.html">Conversion Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast--from-bin.html">cast --from-bin</a></li><li class="chapter-item "><a href="../../reference/cast/cast--from-fix.html">cast --from-fix</a></li><li class="chapter-item "><a href="../../reference/cast/cast--from-rlp.html">cast --from-rlp</a></li><li class="chapter-item "><a href="../../reference/cast/cast--from-utf8.html">cast --from-utf8</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-ascii.html">cast --to-ascii</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-bytes32.html">cast --to-bytes32</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-dec.html">cast --to-dec</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-fix.html">cast --to-fix</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-hex.html">cast --to-hex</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-hexdata.html">cast --to-hexdata</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-int256.html">cast --to-int256</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-rlp.html">cast --to-rlp</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-uint256.html">cast --to-uint256</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-unit.html">cast --to-unit</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-wei.html">cast --to-wei</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/utility-commands.html">Utility Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-sig.html">cast sig</a></li><li class="chapter-item "><a href="../../reference/cast/cast-keccak.html">cast keccak</a></li><li class="chapter-item "><a href="../../reference/cast/cast-compute-address.html">cast compute-address</a></li><li class="chapter-item "><a href="../../reference/cast/cast-interface.html">cast interface</a></li><li class="chapter-item "><a href="../../reference/cast/cast-index.html">cast index</a></li><li class="chapter-item "><a href="../../reference/cast/cast--concat-hex.html">cast --concat-hex</a></li><li class="chapter-item "><a href="../../reference/cast/cast--max-int.html">cast --max-int</a></li><li class="chapter-item "><a href="../../reference/cast/cast--min-int.html">cast --min-int</a></li><li class="chapter-item "><a href="../../reference/cast/cast--max-uint.html">cast --max-uint</a></li><li class="chapter-item "><a href="../../reference/cast/cast--to-checksum-address.html">cast --to-checksum-address</a></li></ol></li><li class="chapter-item "><a href="../../reference/cast/wallet-commands.html">Wallet Commands</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/cast/cast-wallet.html">cast wallet</a></li><li class="chapter-item "><a href="../../reference/cast/cast-wallet-new.html">cast wallet new</a></li><li class="chapter-item "><a href="../../reference/cast/cast-wallet-address.html">cast wallet address</a></li><li class="chapter-item "><a href="../../reference/cast/cast-wallet-sign.html">cast wallet sign</a></li><li class="chapter-item "><a href="../../reference/cast/cast-wallet-vanity.html">cast wallet vanity</a></li><li class="chapter-item "><a href="../../reference/cast/cast-wallet-verify.html">cast wallet verify</a></li></ol></li></ol></li><li class="chapter-item "><a href="../../reference/anvil/index.html">anvil Reference</a></li><li class="chapter-item "><a href="../../reference/config.html">Config Reference</a></li><li class="chapter-item "><a href="../../reference/forge-std/index.html">Forge Standard Library Reference</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge-std/std-assertions.html">Std Assertions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge-std/fail.html">fail</a></li><li class="chapter-item "><a href="../../reference/forge-std/assertFalse.html">assertFalse</a></li><li class="chapter-item "><a href="../../reference/forge-std/assertEq.html">assertEq</a></li><li class="chapter-item "><a href="../../reference/forge-std/assertApproxEqAbs.html">assertApproxEqAbs</a></li><li class="chapter-item "><a href="../../reference/forge-std/assertApproxEqRel.html">assertApproxEqRel</a></li></ol></li><li class="chapter-item "><a href="../../reference/forge-std/std-cheats.html">Std Cheats</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge-std/skip.html">skip</a></li><li class="chapter-item "><a href="../../reference/forge-std/rewind.html">rewind</a></li><li class="chapter-item "><a href="../../reference/forge-std/hoax.html">hoax</a></li><li class="chapter-item "><a href="../../reference/forge-std/startHoax.html">startHoax</a></li><li class="chapter-item "><a href="../../reference/forge-std/deal.html">deal</a></li><li class="chapter-item "><a href="../../reference/forge-std/deployCode.html">deployCode</a></li><li class="chapter-item "><a href="../../reference/forge-std/bound.html">bound</a></li><li class="chapter-item "><a href="../../reference/forge-std/change-prank.html">changePrank</a></li></ol></li><li class="chapter-item "><a href="../../reference/forge-std/std-errors.html">Std Errors</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge-std/assertionError.html">assertionError</a></li><li class="chapter-item "><a href="../../reference/forge-std/arithmeticError.html">arithmeticError</a></li><li class="chapter-item "><a href="../../reference/forge-std/divisionError.html">divisionError</a></li><li class="chapter-item "><a href="../../reference/forge-std/enumConversionError.html">enumConversionError</a></li><li class="chapter-item "><a href="../../reference/forge-std/encodeStorageError.html">encodeStorageError</a></li><li class="chapter-item "><a href="../../reference/forge-std/popError.html">popError</a></li><li class="chapter-item "><a href="../../reference/forge-std/indexOOBError.html">indexOOBError</a></li><li class="chapter-item "><a href="../../reference/forge-std/memOverflowError.html">memOverflowError</a></li><li class="chapter-item "><a href="../../reference/forge-std/zeroVarError.html">zeroVarError</a></li></ol></li><li class="chapter-item "><a href="../../reference/forge-std/std-storage.html">Std Storage</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../reference/forge-std/target.html">target</a></li><li class="chapter-item "><a href="../../reference/forge-std/sig.html">sig</a></li><li class="chapter-item "><a href="../../reference/forge-std/with_key.html">with_key</a></li><li class="chapter-item "><a href="../../reference/forge-std/depth.html">depth</a></li><li class="chapter-item "><a href="../../reference/forge-std/checked_write.html">checked_write</a></li><li class="chapter-item "><a href="../../reference/forge-std/find.html">find</a></li><li class="chapter-item "><a href="../../reference/forge-std/read.html">read</a></li></ol></li><li class="chapter-item "><a href="../../reference/forge-std/std-math.html">Std Math</a></li><li class="chapter-item "><a href="../../reference/forge-std/std-logs.html">Std Logs</a></li></ol></li><li class="chapter-item "><a href="../../reference/ds-test.html">DSTest Reference</a></li><li class="chapter-item "><a href="../../cheatcodes/index.html">Cheatcodes Reference</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cheatcodes/environment.html">Environment</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cheatcodes/warp.html">warp</a></li><li class="chapter-item "><a href="../../cheatcodes/roll.html">roll</a></li><li class="chapter-item "><a href="../../cheatcodes/fee.html">fee</a></li><li class="chapter-item "><a href="../../cheatcodes/chain-id.html">chainId</a></li><li class="chapter-item "><a href="../../cheatcodes/store.html">store</a></li><li class="chapter-item "><a href="../../cheatcodes/load.html">load</a></li><li class="chapter-item "><a href="../../cheatcodes/etch.html">etch</a></li><li class="chapter-item "><a href="../../cheatcodes/deal.html">deal</a></li><li class="chapter-item "><a href="../../cheatcodes/prank.html">prank</a></li><li class="chapter-item "><a href="../../cheatcodes/start-prank.html">startPrank</a></li><li class="chapter-item "><a href="../../cheatcodes/stop-prank.html">stopPrank</a></li><li class="chapter-item "><a href="../../cheatcodes/record.html">record</a></li><li class="chapter-item "><a href="../../cheatcodes/accesses.html">accesses</a></li><li class="chapter-item "><a href="../../cheatcodes/set-nonce.html">setNonce</a></li><li class="chapter-item "><a href="../../cheatcodes/get-nonce.html">getNonce</a></li><li class="chapter-item "><a href="../../cheatcodes/mock-call.html">mockCall</a></li><li class="chapter-item "><a href="../../cheatcodes/clear-mocked-calls.html">clearMockedCalls</a></li><li class="chapter-item "><a href="../../cheatcodes/coinbase.html">coinbase</a></li><li class="chapter-item "><a href="../../cheatcodes/broadcast.html">broadcast</a></li><li class="chapter-item "><a href="../../cheatcodes/start-broadcast.html">startBroadcast</a></li><li class="chapter-item "><a href="../../cheatcodes/stop-broadcast.html">stopBroadcast</a></li></ol></li><li class="chapter-item "><a href="../../cheatcodes/assertions.html">Assertions</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cheatcodes/expect-revert.html">expectRevert</a></li><li class="chapter-item "><a href="../../cheatcodes/expect-emit.html">expectEmit</a></li><li class="chapter-item "><a href="../../cheatcodes/expect-call.html">expectCall</a></li></ol></li><li class="chapter-item "><a href="../../cheatcodes/fuzzer.html">Fuzzer</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cheatcodes/assume.html">assume</a></li></ol></li><li class="chapter-item "><a href="../../cheatcodes/external.html">External</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cheatcodes/ffi.html">ffi</a></li><li class="chapter-item "><a href="../../cheatcodes/get-code.html">getCode</a></li><li class="chapter-item "><a href="../../cheatcodes/set-env.html">setEnv</a></li><li class="chapter-item "><a href="../../cheatcodes/env-bool.html">envBool</a></li><li class="chapter-item "><a href="../../cheatcodes/env-uint.html">envUint</a></li><li class="chapter-item "><a href="../../cheatcodes/env-int.html">envInt</a></li><li class="chapter-item "><a href="../../cheatcodes/env-address.html">envAddress</a></li><li class="chapter-item "><a href="../../cheatcodes/env-bytes32.html">envBytes32</a></li><li class="chapter-item "><a href="../../cheatcodes/env-string.html">envString</a></li><li class="chapter-item "><a href="../../cheatcodes/env-bytes.html">envBytes</a></li></ol></li><li class="chapter-item "><a href="../../cheatcodes/utilities.html">Utilities</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../cheatcodes/addr.html">addr</a></li><li class="chapter-item "><a href="../../cheatcodes/sign.html">sign</a></li><li class="chapter-item "><a href="../../cheatcodes/label.html">label</a></li></ol></li></ol></li></ol></li><li class="chapter-item expanded "><a href="../../misc/index.html">Misc</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu (default)</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Foundry Book</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/foundry-rs/book" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+                        <a href="https://github.com/foundry-rs/book/edit/master/src/reference/forge/forge-cache-ls.md" title="Suggest an edit" aria-label="Suggest an edit">
+                            <i id="git-edit-button" class="fa fa-edit"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="forge-cache-ls"><a class="header" href="#forge-cache-ls"><code>forge cache ls</code></a></h2>
+<h3 id="name"><a class="header" href="#name">NAME</a></h3>
+<p>forge-cache-ls - Shows cached data from <code>~/.foundry</code>.</p>
+<h3 id="synopsis"><a class="header" href="#synopsis">SYNOPSIS</a></h3>
+<p><code>forge cache ls</code> [<em>chains..</em>]</p>
+<h3 id="description"><a class="header" href="#description">DESCRIPTION</a></h3>
+<p>Lists what is in the <code>~/.foundry/cache</code> folder currently.</p>
+<h3 id="options"><a class="header" href="#options">OPTIONS</a></h3>
+<h4 id="common-options"><a class="header" href="#common-options">Common Options</a></h4>
+<p><code>-h</code><br />
+<code>--help</code><br />
+    Prints help information.</p>
+<h3 id="examples"><a class="header" href="#examples">EXAMPLES</a></h3>
+<ol>
+<li>
+<p>Show the entire cache (also, <code>forge cache ls</code> is an alias for this)</p>
+<pre><code class="language-sh">forge cache ls all
+</code></pre>
+</li>
+<li>
+<p>Show cache data for a specific chain, by name</p>
+<pre><code class="language-sh">forge cache ls rinkeby
+</code></pre>
+</li>
+<li>
+<p>Specify multiple chains</p>
+<pre><code class="language-sh">forge cache ls rinkeby mainnet
+</code></pre>
+</li>
+</ol>
+<h3 id="see-also"><a class="header" href="#see-also">SEE ALSO</a></h3>
+<p><a href="./forge.html">forge</a>, <a href="./forge-cache.html">forge cache</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../reference/forge/forge-cache-clean.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../../reference/forge/forge-script.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../reference/forge/forge-cache-clean.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../../reference/forge/forge-script.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript" src="../../src/static/solidity.min.js"></script>
+    </body>
+</html>
